@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "lib",
+        "target": "es3",
+        "lib": ["es2018", "dom"],
+        "module": "commonjs",
+        "declaration": true
+    },
+    "exclude": ["node_modules", "lib"],
+    "include": ["src"]
+}

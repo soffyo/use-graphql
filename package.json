@@ -1,0 +1,38 @@
+{
+  "name": "use-graphql",
+  "version": "0.0.1",
+  "description": "React hook for fetching data from a graphql endpoint",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc"
+  },
+  "keywords": [
+    "graphql",
+    "react",
+    "hook"
+  ],
+  "author": "soffyo",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "eslint": "^8.13.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@graphql-typed-document-node/core": "^3.1.1",
+    "@types/react": "^18.0.5",
+    "graphql": "^16.3.0",
+    "react": "^18.0.0"
+  }
+}
