@@ -2,14 +2,21 @@
   "name": "use-graphql",
   "version": "0.0.1",
   "description": "React hook for fetching data from a graphql endpoint",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib/**/*"
   ],
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "npm run build",
+    "version": "git add .",
+    "postversion": "git push origin main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soffyo/use-graphql.git"
   },
   "keywords": [
     "graphql",

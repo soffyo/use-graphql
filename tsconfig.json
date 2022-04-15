@@ -5,7 +5,7 @@
         "target": "es3",
         "lib": ["es2018", "dom"],
         "module": "commonjs",
-        "declaration": true
+        "declaration": true,
     },
     "exclude": ["node_modules", "lib"],
     "include": ["src"]

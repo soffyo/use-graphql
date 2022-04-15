@@ -1,8 +1,8 @@
-# useGraphQL
+# use-graphql
 
 > One simple Typescript/React hook used to fetch data from a GraphQL endpoint. 
 
-**useGraphQL** aims to cover the generic GraphQL usage inside a React/Typescript environment providing a helpful API to bring you the query/mutation result in a simple and clean way with types included (if you want). 
+**use-graphql** aims to cover the generic GraphQL usage inside a React/Typescript environment providing a helpful API to bring you the query/mutation result in a simple and clean way with types included (if you want). 
 
 It supports [TypedDocumentNode](https://github.com/dotansimha/graphql-typed-document-node) as an input source as well as a normal GraphQL `DocumentNode`. 
 
