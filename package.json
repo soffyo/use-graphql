@@ -12,7 +12,7 @@
     "build": "tsc",
     "prepare": "npm run build",
     "version": "git add .",
-    "postversion": "git push origin main"
+    "postversion": "git push"
   },
   "repository": {
     "type": "git",
