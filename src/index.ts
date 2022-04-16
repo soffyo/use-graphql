@@ -1,6 +1,7 @@
 import { print, DocumentNode } from "graphql"
 import { useState, useEffect, useCallback, useMemo } from "react"
 import { TypedDocumentNode } from "@graphql-typed-document-node/core"
+import { useVariables } from "./use-variables"
 
 interface useGraphQLArgs {
     operation: DocumentNode | string
@@ -102,27 +103,4 @@ export function useGraphQL<D = any, V = Record<string, any>>({ operation, variab
         loaded: graphQL ? true : false,
         execute: fetchGraphQL
     }
-}
-
-function useVariables<VariablesType = Record<string, any>>(variables: VariablesType): string
-function useVariables<V>(variables: V): string {
-    const current = JSON.stringify(variables)
-
-    const [result, set] = useState<string>(current)
-
-    useEffect(() => {
-        set(prev => {
-            if (prev !== current) {
-                return current
-            }
-
-            return prev
-        })
-
-        return () => {
-            set(current)
-        }
-    }, [current])
-
-    return result
 }
