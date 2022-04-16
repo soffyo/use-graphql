@@ -10,7 +10,9 @@ In the future, more features may be implemented.
 
 ### Installation:
 
-```npm i --save use-graphql-ts````
+```
+    npm i --save use-graphql-ts
+````
 
 ### Basic usage example:
 
