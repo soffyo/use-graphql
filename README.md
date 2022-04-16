@@ -8,6 +8,10 @@ It supports [TypedDocumentNode](https://github.com/dotansimha/graphql-typed-docu
 
 In the future, more features may be implemented.
 
+### Installation:
+
+```npm i --save use-graphql-ts````
+
 ### Basic usage example:
 
 ```javascript
