@@ -12,7 +12,7 @@
     "test": "jest --config jestconfig.json",
     "build": "tsc",
     "prepare": "npm run build",
-    "version": "git add . && git commit -m 'npm version bump'",
+    "version": "git add .",
     "postversion": "git push"
   },
   "repository": {
