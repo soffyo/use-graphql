@@ -1,8 +1,8 @@
-# use-graphql
+# use-graphql-ts
 
 > One simple Typescript/React hook used to fetch data from a GraphQL endpoint. 
 
-**use-graphql** aims to cover the generic GraphQL usage inside a React/Typescript environment providing a helpful API to bring you the query/mutation result in a simple and clean way with types included (if you want). 
+**use-graphql-ts** aims to cover the generic GraphQL usage inside a React/Typescript environment providing a helpful API to bring you the query/mutation result in a simple and clean way with types included (if you want). 
 
 It supports [TypedDocumentNode](https://github.com/dotansimha/graphql-typed-document-node) as an input source as well as a normal GraphQL `DocumentNode`. 
 
@@ -16,7 +16,7 @@ In the future, more features may be implemented.
 
 ### Basic usage example:
 
-```javascript
+```tsx
 import { useGraphQL } from "use-graphql"
 import { GetUserDocument } from "./operations"
 
@@ -54,18 +54,40 @@ function Username({ email }) {
 
 ### API
 
-The useGraphQL hook returns an `Object` with the following properties:
+useGraphQL returns an `Object` with the following properties:
 
-+ **data**: the `data` object you get from a successful GraphQL request or `null` if errors occurred or the request didn't load yet.
-+ **errors**: the `Errors` array you get from GraphQL when one or more errors occurred or `null` if the server responded with `data`
-+ **loaded**: `true` when the server responds. Otherwise `false`
+```typescript
+    data: Record<string, any> | null  
+    errors: Error[] | null
+    loaded: boolean 
+    execute: () => Promise<void>
+```
+
++ **data**: the response you get from a successful GraphQL request. `null` if errors occurred or the request didn't load yet.
+  
++ **errors**: the errors array you get from GraphQL when one or more errors occurred. `null` if the server responded with `data`
+  
++ **loaded**: `true` when the server responds and the promise is fullfilled. Otherwise `false`
+  
 + **execute**: an `async function` which executes the request. Useful if you need to refresh the result or using `passive: true`.
 
-The useGraphQL function accepts an object as its only argument with following properties:
+The useGraphQL function accepts an object as its only argument with the following properties:
 
-+ **operation**: Mandatory - can be a `TypedDocumentNode`, a `DocumentNode` or a `String`. This contains the operation you send to the GraphQL endpoint.
-+ **variables**: Optional - `Object` with the following structure `{ [key: string]: any}`. The variables used by the GraphQL operation.
-+ **token**: Optional - `String` containing an authorization token which will be sent with the *Authorization* header as `bearer ${token}`.
-+ **passive**: Optional - `Boolean` value which determines if the GraphQL request will be executed immediatly or not. If passed `true` the request will only run if you call `execute()`, otherwise it will run as soon as the component renders. Defaults to `false`
-+ **endpoint**: the GraphQL endpoint. Defaults to `/graphql`.
+```typescript
+    operation: DocumentNode | TypedDocumentNode | string
+    variables?: Record<string, any> // defaults to null
+    token?: string //defaults to null
+    passive?: boolean // defaults to false
+    endpoint?: string // defaults to "/graphql"
+```
+
++ **operation** - *Non-Optional*: This is the mutation or query request you send to the GraphQL endpoint. Can be a `TypedDocumentNode`, a `DocumentNode` or a `String`. 
+  
++ **variables** - *Optional*: The variables object used by the GraphQL operation.
+  
++ **token** - *Optional*: An authorization token which will be sent with the *Authorization* header as `bearer ${token}`.
+  
++ **passive** - *Optional*: Determines if the GraphQL request will be executed immediatly or not. If passed `true` the request will only run when you call `execute()`, otherwise if passed `false` it will run as soon as the component renders.
+  
++ **endpoint**: the GraphQL endpoint.
 
