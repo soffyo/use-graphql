@@ -17,7 +17,7 @@ In the future, more features may be implemented.
 ### Basic usage example:
 
 ```tsx
-import { useGraphQL } from "use-graphql"
+import { useGraphQL } from "use-graphql-ts"
 import { GetUserDocument } from "./operations"
 
 function Username({ email }) {
