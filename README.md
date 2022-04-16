@@ -22,7 +22,7 @@ import { GetUserDocument } from "./operations"
 
 function Username({ email }) {
     const { data, errors, loaded } = useGraphQL({
-        operation: GetUserDocument, // can be a TypedDocumentNode, a DocumentNode or a string 
+        operation: GetUserDocument, // can be a TypedDocumentNode 
         variables: { email }
     })
 
@@ -64,11 +64,8 @@ useGraphQL returns an `Object` with the following properties:
 ```
 
 + **data**: the response you get from a successful GraphQL request. `null` if errors occurred or the request didn't load yet.
-  
 + **errors**: the errors array you get from GraphQL when one or more errors occurred. `null` if the server responded with `data`
-  
-+ **loaded**: `true` when the server responds and the promise is fullfilled. Otherwise `false`
-  
++ **loaded**: `true` when the server responds and the promise is fullfilled. Otherwise `false` 
 + **execute**: an `async function` which executes the request. Useful if you need to refresh the result or using `passive: true`.
 
 The useGraphQL function accepts an object as its only argument with the following properties:
@@ -82,12 +79,8 @@ The useGraphQL function accepts an object as its only argument with the followin
 ```
 
 + **operation** - *Non-Optional*: This is the mutation or query request you send to the GraphQL endpoint. Can be a `TypedDocumentNode`, a `DocumentNode` or a `String`. 
-  
 + **variables** - *Optional*: The variables object used by the GraphQL operation.
-  
 + **token** - *Optional*: An authorization token which will be sent with the *Authorization* header as `bearer ${token}`.
-  
 + **passive** - *Optional*: Determines if the GraphQL request will be executed immediatly or not. If passed `true` the request will only run when you call `execute()`, otherwise if passed `false` it will run as soon as the component renders.
-  
 + **endpoint**: the GraphQL endpoint.
 
