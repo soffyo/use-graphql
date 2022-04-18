@@ -61,12 +61,14 @@ useGraphQL returns an `Object` with the following properties:
     errors: Error[] | null
     loaded: boolean 
     execute: () => Promise<void>
+    reset: () => void
 ```
 
 + **data**: the response you get from a successful GraphQL request. `null` if errors occurred or the request didn't load yet.
 + **errors**: the errors array you get from GraphQL when one or more errors occurred. `null` if the server responded with `data`
 + **loaded**: `true` when the server responds and the promise is fullfilled. Otherwise `false` 
 + **execute**: an `async function` which executes the request. Useful if you need to refresh the result or using `passive: true`.
++ **reset**: a `function` that sets alla the return values to initial. 
 
 The useGraphQL function accepts an object as its only argument with the following properties:
 
