@@ -24,6 +24,7 @@ interface GraphQLResponse<DataType> {
 interface useGraphQLResult<DataType> extends GraphQLResponse<DataType> {
     loaded: boolean
     execute: () => Promise<void>
+    reset: () => void
 } 
 
 export function useGraphQL<DataType = any, VariablesType = Record<string, any>>(args: TypedGraphQLArgs<DataType, VariablesType>): useGraphQLResult<DataType>
@@ -101,6 +102,7 @@ export function useGraphQL<D = any, V = Record<string, any>>({ operation, variab
     return {
         ...graphQL,
         loaded: graphQL ? true : false,
-        execute: fetchGraphQL
+        execute: fetchGraphQL,
+        reset: () => setGraphQL(null)
     }
 }
