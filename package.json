@@ -1,6 +1,6 @@
 {
   "name": "use-graphql-ts",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "React hook for fetching data from a graphql endpoint",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
