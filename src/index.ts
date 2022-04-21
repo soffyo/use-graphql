@@ -43,7 +43,7 @@ export function useGraphQL<D = any, V = Record<string, any>>({ operation, variab
 
     const Authorization = useMemo(() => {
         if (token) {
-            return { Authorization: `bearer ${token}` }
+            return { Authorization: `Bearer ${token}` }
         }
     }, [token])
 

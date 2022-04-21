@@ -82,7 +82,7 @@ The useGraphQL function accepts an object as its only argument with the followin
 
 + **operation** - *Non-Optional*: This is the mutation or query request you send to the GraphQL endpoint. Can be a `TypedDocumentNode`, a `DocumentNode` or a `String`. 
 + **variables** - *Optional*: The variables object used by the GraphQL operation.
-+ **token** - *Optional*: An authorization token which will be sent with the *Authorization* header as `bearer ${token}`.
++ **token** - *Optional*: An authorization token which will be sent with the *Authorization* header as `Bearer <token>`.
 + **passive** - *Optional*: Determines if the GraphQL request will be executed immediatly or not. If passed `true` the request will only run when you call `execute()`, otherwise if passed `false` it will run as soon as the component renders.
 + **endpoint**: the GraphQL endpoint.
 
