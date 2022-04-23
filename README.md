@@ -60,13 +60,15 @@ useGraphQL returns an `Object` with the following properties:
     data: Record<string, any> | null  
     errors: Error[] | null
     loaded: boolean 
+    ok: boolean
     execute: () => Promise<void>
     reset: () => void
 ```
 
 + **data**: the response you get from a successful GraphQL request. `null` if errors occurred or the request didn't load yet.
 + **errors**: the errors array you get from GraphQL when one or more errors occurred. `null` if the server responded with `data`
-+ **loaded**: `true` when the server responds and the promise is fullfilled. Otherwise `false` 
++ **loaded**: `true` when the server responds and the promise is fullfilled. Otherwise `false`. Note that this will be `true` even when errors occured.
++ **ok**: `true` when the server responds with `data` and `errors` is `null`. Useful to check if data is retrieved without errors.
 + **execute**: an `async function` which executes the request. Useful if you need to refresh the result or using `passive: true`.
 + **reset**: a `function` that sets alla the return values to initial. 
 
