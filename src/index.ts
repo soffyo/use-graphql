@@ -23,6 +23,7 @@ interface GraphQLResponse<DataType> {
 
 interface useGraphQLResult<DataType> extends GraphQLResponse<DataType> {
     loaded: boolean
+    ok: boolean
     execute: () => Promise<void>
     reset: () => void
 } 
@@ -83,6 +84,20 @@ export function useGraphQL<D = any, V = Record<string, any>>({ operation, variab
         }
     }, [Authorization, query, vars, endpoint])
 
+    const dataOk: () => boolean = useCallback(() => {
+        if (graphQL) {
+            if (!graphQL.errors) {
+                if (graphQL.data) {
+                    return true
+                }
+            } else {
+                return false
+            }
+        }
+
+        return false
+    }, [graphQL]) 
+
     useEffect(() => {
         let mounted = true
 
@@ -102,6 +117,7 @@ export function useGraphQL<D = any, V = Record<string, any>>({ operation, variab
     return {
         ...graphQL,
         loaded: graphQL ? true : false,
+        ok: dataOk(),
         execute: fetchGraphQL,
         reset: () => setGraphQL(null)
     }

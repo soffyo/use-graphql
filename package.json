@@ -11,6 +11,8 @@
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
+    "git": "git add . && git commit -m",
+    "postgit": "git push",
     "prepare": "npm run build",
     "version": "git add .",
     "postversion": "git push"
@@ -27,6 +29,7 @@
   "author": "soffyo",
   "license": "ISC",
   "devDependencies": {
+    "@testing-library/react": "^13.1.1",
     "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",
@@ -34,6 +37,7 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
     "jest": "^27.5.1",
+    "jest-fetch-mock": "^3.0.3",
     "ts-jest": "^27.1.4",
     "typescript": "^4.6.3"
   },
