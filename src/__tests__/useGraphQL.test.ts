@@ -9,12 +9,14 @@ beforeEach(() => {
 })
 
 it('useGraphQL', async () => {
-    fetch.once(JSON.stringify({
-        data: {
-            test: "test OK."
-        },
-        errors: null
-    }, ))
+    fetch.mockResponseOnce(() => {
+        return Promise.resolve(JSON.stringify({
+            data: {
+                test: "test OK."
+            },
+            errors: null
+        }))
+    })
 
     const { result } = renderHook(() => useGraphQL({
         operation: "query { test }",
