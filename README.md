@@ -136,14 +136,12 @@ function DeleteUser({ email }) {
 useGraphQL returns an `Object` with the following properties:
 
 ```typescript
-{
-    data: Record<string, any> | null  
-    errors: Error[] | null
+    data: Record<string, any>
+    errors: Error[]
     loaded: boolean 
     ok: boolean
     execute: () => Promise<void>
     reset: () => void
-}
 ```
 
 + **data**: the response you get from a successful GraphQL request. `null` if errors occurred or the request didn't load yet.
@@ -156,18 +154,21 @@ useGraphQL returns an `Object` with the following properties:
 The useGraphQL function accepts an object as its only argument with the following properties:
 
 ```typescript
-{
     operation: DocumentNode | TypedDocumentNode | string
     variables?: Record<string, any> // defaults to null
     token?: string //defaults to null
     passive?: boolean // defaults to false
     endpoint?: string // defaults to "/graphql"
-}
 ```
 
 + **operation** - *Non-Optional*: This is the mutation or query request you send to the GraphQL endpoint. Can be a `TypedDocumentNode`, a `DocumentNode` or a `String`. 
 + **variables** - *Optional*: The variables object used by the GraphQL operation.
 + **token** - *Optional*: An authorization token which will be sent with the *Authorization* header as `Bearer <token>`.
-+ **passive** - *Optional*: Determines if the GraphQL request will be executed immediatly or not. If passed `true` the request will only run when you call `execute()`, otherwise if passed `false` it will run as soon as the component renders.
-+ **endpoint**: the GraphQL endpoint.
++ **passive** - *Optional*: Determines if the GraphQL request will be executed immediatly or not. If passed `true` the request will only run when you call `execute()`, otherwise if passed `false` it will run as soon as the component renders. Defaults to `false`
++ **endpoint**: the GraphQL endpoint. Defaults to `/graphql`
+
+The function accepts two generic arguments for defining returned data and variables types:
+```typescript
+function useGraphQL<DataType, VariablesType>
+```
 
