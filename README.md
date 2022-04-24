@@ -136,12 +136,14 @@ function DeleteUser({ email }) {
 useGraphQL returns an `Object` with the following properties:
 
 ```typescript
+{
     data: Record<string, any> | null  
     errors: Error[] | null
     loaded: boolean 
     ok: boolean
     execute: () => Promise<void>
     reset: () => void
+}
 ```
 
 + **data**: the response you get from a successful GraphQL request. `null` if errors occurred or the request didn't load yet.
@@ -154,11 +156,13 @@ useGraphQL returns an `Object` with the following properties:
 The useGraphQL function accepts an object as its only argument with the following properties:
 
 ```typescript
+{
     operation: DocumentNode | TypedDocumentNode | string
     variables?: Record<string, any> // defaults to null
     token?: string //defaults to null
     passive?: boolean // defaults to false
     endpoint?: string // defaults to "/graphql"
+}
 ```
 
 + **operation** - *Non-Optional*: This is the mutation or query request you send to the GraphQL endpoint. Can be a `TypedDocumentNode`, a `DocumentNode` or a `String`. 
