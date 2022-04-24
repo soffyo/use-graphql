@@ -35,7 +35,7 @@ import { GetUserDocument } from "./generated-types"
 function Username({ email }) {
     const { data, errors, loaded } = useGraphQL({
         operation: GetUserDocument, // <- TypedDocumentNode 
-        variables: { email }
+        variables: { email } // <- type checking here!
     })
 
     const displayUsername = () => {
@@ -44,7 +44,7 @@ function Username({ email }) {
                 return `An error occurred: ${errors[0].message}`
                 )
             }
-            return `Username: ${data.user.username}` // <- will automatically benefit from autocomplete and type checking!
+            return `Username: ${data.user.username}` // <- type checking here!
         }
         return "Loading..."
     }
@@ -104,7 +104,7 @@ In this example we can see how to execute the operation only when we call it.
 ```tsx
 import { useGraphQL } from "use-graphql-ts"
 
-function deleteUser({ email }) {
+function DeleteUser({ email }) {
     const { ok, execute } = useGraphQL({
         operation: `mutation($email: String!) {
             deleteUser(email: $email)
