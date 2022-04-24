@@ -68,7 +68,7 @@ query getUser {
 }
 ```
 > types.ts
-```
+```typescript
 interface User {
     ...
     username: string
