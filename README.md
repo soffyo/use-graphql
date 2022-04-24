@@ -4,7 +4,7 @@
 
 **use-graphql-ts** aims to cover the generic GraphQL usage inside a React/Typescript environment providing a helpful API to bring you the query/mutation result in a simple and clean way with types included (if you want). 
 
-It supports [TypedDocumentNode](https://github.com/dotansimha/graphql-typed-document-node) as an input source as well as a normal GraphQL `DocumentNode`. 
+It supports [@dotansimha/graphql-typed-document-node](https://github.com/dotansimha/graphql-typed-document-node) as an input source as well as a normal GraphQL `DocumentNode`. 
 
 In the future, more features may be implemented.
 
